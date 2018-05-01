@@ -1,3 +1,0 @@
-/home/chiliu/slam/Slam_Learning/ceres_curve_fitting_chi/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/chiliu/slam/Slam_Learning/ceres_curve_fitting_chi/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/chiliu/slam/Slam_Learning/ceres_curve_fitting_chi/cmake-build-debug/CMakeFiles/ceres_curve_fitting_chi.dir
