@@ -1,2 +1,3 @@
 # Slam_Learning
-practice makes perfectsome practice of slam
+Practice makes perfect 
+Some practice of slam
