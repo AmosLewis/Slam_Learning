@@ -19,10 +19,11 @@ void find_feature_matches ( const Mat& img_1, const Mat& img_2,
                             std::vector<KeyPoint>& key_points_2,
                             std::vector< DMatch >& good_matches);
 
-void pose_estimation_2d_2d( std::vector<KeyPoint> key_points_1,
-                            std::vector<KeyPoint> key_points_2,
-                            std::vector< DMatch > matches,
-                            Mat& R, Mat& t);
+void pose_estimation_2d_2d(
+        const std::vector<KeyPoint> key_points_1,
+        const std::vector<KeyPoint> key_points_2,
+        const std::vector< DMatch > matches,
+        Mat& R, Mat& t);
 
 Point2d pixel2cam ( const Point2d& p, const Mat& K);
 
@@ -61,7 +62,7 @@ int main(int argc, char** argv)
         Mat y1 = ( Mat_<double>(3,1)<<pt1.x, pt1.y, 1);
         Mat y2 = ( Mat_<double>(3,1)<<pt2.x, pt2.y, 1);
         Mat d= y2.t()*t_x*R*y1;
-        cout << "epipolar constraint = " << d << endl;
+        cout << "epipolar constraint = " << d << endl;  // d should be approximately equal to 0
     }
     return 0;
 }
@@ -157,7 +158,7 @@ void pose_estimation_2d_2d( std::vector<KeyPoint> key_points_1,
     essential_matrix = findEssentialMat(points_1, points_2, focal_length, principle_point);
     cout<<"essential_matrix is"<<endl<< essential_matrix<<endl;
 
-    // calculate homography matrix
+    // calculate homography matrix,
     Mat homography_matrix;
     homography_matrix = findHomography (points_1, points_2, RANSAC, 3);
     cout<<"homography_matrix is"<<endl<< homography_matrix<<endl;
